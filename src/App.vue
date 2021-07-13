@@ -1,26 +1,52 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Main v-if="!popUpIsActive" v-on:showPopUp='showPopUp' />
+  <PopUp v-else v-on:hidePopUp='hidePopUp' />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Main from './components/Main.vue'
+import PopUp from './components/PopUp.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Main,
+    PopUp
+  },
+  data(){
+    return{
+      popUpIsActive: false
+    }
+  },
+  methods:{
+    showPopUp(){
+      this.popUpIsActive = true
+    },
+    hidePopUp(){
+      this.popUpIsActive = false
+    }
   }
 }
 </script>
 
 <style>
+@font-face {
+ font-family: "LabGrotesque-Light";
+ src: url("./font/LabGrotesque-Light.ttf") format("ttf"),
+
+}
+@font-face {
+  font-family: "LabGrotesque-Regular";
+  src: url("./font/LabGrotesque-Regular.ttf") format("ttf");
+}
+body{
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100vw;
+  height: 100vh;
 }
 </style>
