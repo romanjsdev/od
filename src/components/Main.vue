@@ -7,8 +7,6 @@
 <script>
 export default {
   name: 'Main',
-  props: {
-  },
   methods:{
     showPopUp(){
       this.$emit('showPopUp')
