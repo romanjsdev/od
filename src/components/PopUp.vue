@@ -43,8 +43,6 @@
 <script>
 export default {
     name: 'PopUp',
-    props: {
-    },
     data(){
         return{
             showCheckbox: false,
